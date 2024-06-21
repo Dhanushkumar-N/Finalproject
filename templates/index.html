@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicinal Plants Identification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Recognition</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <input type="submit" value="Upload">
+        </form>
+        <p>{{ message }}</p>
+        {% if info %}
+            <div class="result">
+                <h2>Plant Information</h2>
+                <p><strong>Tamil Name:</strong> {{ info['Tamil_name'] }}</p>
+                <p><strong>Parts Used:</strong> {{ info['Parts_used'] }}</p>
+                <p><strong>Uses:</strong> {{ info['Uses'] }}</p>
+                <p><strong>Grown Area:</strong> {{ info['Grown_Area'] }}</p>
+                <p><strong>Preparation Method:</strong> {{ info['Preparation_method'] }}</p>
+		<p><strong>Preparation Method(Tamil):</strong> {{ info['Preparation_method(Tamil)'] }}</p>
+            </div>
+            {% if image_path %}
+                <div class="uploaded-image">
+                
+                     
+
+
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
